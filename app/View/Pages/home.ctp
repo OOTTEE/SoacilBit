@@ -1,36 +1,56 @@
 
 		<div class="jumbotron row" id="login">
-			<div class="col-md-offset-2 col-md-8">
-			<?php echo $this->Html->image('LOGO.png', array('alt' => 'SocialBi'));?>
-				<div class="jumbotron" id="form_login">
-					<form class="form-horizontal" role="form">
-						<div class="form-group">
-							<label for="user" class="col-sm-3 control-label">Usuario</label>
-							<div class="col-sm-6">
-								<input type="text" class="form-control" id="user" placeholder="Usuario">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="pass" class="col-sm-3 control-label">Password</label>
-							<div class="col-sm-6">
-								<input type="password" class="form-control" id="pass" placeholder="Password">
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-offset-3 col-sm-6">
-								<div class="checkbox">
-									<label class="control-label">
-										<input type="checkbox"> Requerdame
-									</label>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-offset-3 col-sm-6">
-								<button type="submit" class="btn btn-default">Sign in</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
+		<div  class="col-md-offset-2 col-md-8">
+			<?php echo $this->Html->image('LOGO.png', array('alt' => 'SocialBit'));?>
 		</div>
+		<div class="col-md-offset-2 col-md-8" id="form_login">
+			<?php
+				echo $this->Form->create('user', array(
+					'action' => 'add',
+					'class' => 'form-horizontal',
+					'role' => 'form',
+					'inputDefaults' => array(
+							'format' => array('before', 'label', 'between', 'input', 'error', 'after'),
+							'div' => array('class' => 'form-group'),
+							'label' => array('class' => 'control-label'),
+							'between' => '<div class="col-sm-6">',
+							'after' => '</div>',
+							'error' => array('attributes' => array('wrap' => 'span', 'class' => 'help-inline')),
+					)));
+
+					echo $this->Form->input('user.alias', array('label' => array('class' => 'control-label col-sm-3', 'text' => 'Usuario'), 'placeholder' => 'Usuario','class'=>'form-control'));
+					echo $this->Form->input('user.nombre', array('label' => array('class' => 'control-label col-sm-3', 'text' => 'Nombre Completo'), 'placeholder' => 'Nombre Completo','class'=>'form-control'));
+					echo $this->Form->input('user.pass', array('label' => array('class' => 'control-label col-sm-3', 'text' => 'Contraseña'), 'placeholder' => 'Password','class'=>'form-control'));
+					//echo $this->Form->input('user.pass2', array('label' => array('class' => 'control-label col-sm-3', 'text' => 'Repite Contraseña'), 'placeholder' => 'Repite Password','class'=>'form-control'));
+			?>
+					<div class="form-group">
+						<?php	echo $this->Form->end(array( 'label' => 'Registro','div' => array( 'class' => 'col-sm-offset-3 col-sm-6',), 'class'=>'btn btn-default' ));?>
+					</div>
+
+		</div>
+		<div class="col-md-offset-2 col-md-8" id="form_login">
+			<?php
+				echo $this->Form->create('user', array(
+					'action' => 'login',
+					'class' => 'form-horizontal',
+					'role' => 'form',
+					'inputDefaults' => array(
+							'format' => array('before', 'label', 'between', 'input', 'error', 'after'),
+							'div' => array('class' => 'form-group'),
+							'label' => array('class' => 'control-label'),
+							'between' => '<div class="col-sm-6">',
+							'after' => '</div>',
+							'error' => array('attributes' => array('wrap' => 'span', 'class' => 'help-inline')),
+					)));
+
+					echo $this->Form->input('user.alias', array('label' => array('class' => 'control-label col-sm-3', 'text' => 'Usuario'), 'placeholder' => 'Usuario','class'=>'form-control'));
+					echo $this->Form->input('user.pass', array('label' => array('class' => 'control-label col-sm-3', 'text' => 'Contraseña'), 'placeholder' => 'Password','class'=>'form-control'));
+			?>
+			<div class="form-group">
+					<?php	echo $this->Form->end(array( 'label' => 'Acceso','div' => array( 'class' => 'col-sm-offset-3 col-sm-6',), 'class'=>'btn btn-default' ));?>
+			</div>
+
+		</div>
+
+
+	</div>
