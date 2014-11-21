@@ -1,14 +1,21 @@
 <?php
+//Importamos el modelo Post para poder hacer uso de el en este otro modelo.
+App::import('model','Post');
+
 class UsersController extends AppController{
 	public $helpers = array('Html','Form');
 	public function index(){
+			$Post = new Post();
+			debug($Post->find('all'));
 
 	}
+
 	public function beforeFilter(){
 		parent::beforeFilter();
 		//Añadimos la accion add al ambiente publico
 		$this->Auth->allow('add');
 	}
+
 	public function add(){
 			if ($this->request->is('post')) {
 					if($this->User->save($this->request->data)){

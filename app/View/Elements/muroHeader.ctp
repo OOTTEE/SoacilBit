@@ -15,12 +15,33 @@
   </div>
   <!--barra multiproposito -->
   <div class="collapse navbar-collapse pull-right" id="multiBox" >
-    <form class="navbar-form navbar-left " role="search"  id="textBox" >
-      <div class="form-group">
+    <?php
+      echo $this->Form->create('Post', array('action' => 'add',
+                                            'class' => 'navbar-form navbar-left',
+                                            'role' => 'search',
+                                            'id' => 'textBox',
+
+                                            )
+                              );
+        ?>
+        <div class="form-group">
         <label for="multiBox">¿Que Piensas?</label>
-        <input type="text" class="form-control text-right" placeholder="+"></span><!--lupa -> &#xe003; -->
-      </div>
-    </form>
+        <?php
+          echo $this->Form->textarea('post', array(//'label' => array('for' => 'multiBox','text' => '¿Que Piensas?'),
+                                               //'placeholder' => '+',
+                                               'class'=>'form-control text-left',
+                                               'id' => 'multiBox',
+                                               'rows' => '1',
+                                               'cols' => '40',
+                                               'maxlength' => '512'
+
+                                               ));
+        ?>
+        <?php	echo $this->Form->end(array( 'escape'=>false,
+                                          //'label' => '&#xe171',
+                                          'label' => '+',
+                                          'div' => false, 'class'=>'btn btn-default submit' ));?>
+        </div>
   </div>
 </div>
 </nav>

@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>SocialBit</title>
     <link rel="shortcut icon" href="./image/ico.png">
-    <!-- Latest compiled and minified CSS -->
-    <?php //echo $this->Html->css('cake.generic');?>
+    <!-- Ficheros de estilo para el debug -->
+    <?php echo $this->Html->css('style-debug');?>
+    <!-- Fichero de estilo -->
     <?php echo $this->Html->css('bootstrap.min.css');?>
     <?php echo $this->Html->css('bootstrap-theme.min.css');?>
     <?php echo $this->Html->css('estilo.css');?>

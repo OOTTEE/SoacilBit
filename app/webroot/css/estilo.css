@@ -139,9 +139,22 @@ section#columnaDerecha{
 		form#textBox div{
 			width:100%;
 		}
-		form#textBox input{
+		form#textBox input,
+		form#textBox textarea{
 			font-family: 'Glyphicons Halflings';
-			width: 80%;
+			width: 70%;
+			max-width:70%;
+		}
+		form#textBox input.submit{
+			position: absolute;
+			float: right;
+			right: 10px;
+			top: 11px;
+			width:auto;
+			background: none;
+			border: none;
+			-webkit-box-shadow: none;
+			color:#7E7E7E;
 		}
 		form#textBox label{
 			color: rgba(255,255,255,0.5);
