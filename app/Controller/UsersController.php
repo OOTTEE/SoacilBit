@@ -4,21 +4,46 @@ class UsersController extends AppController{
 	public function index(){
 
 	}
+	public function beforeFilter(){
+		parent::beforeFilter();
+		//Añadimos la accion add al ambiente publico
+		$this->Auth->allow('add');
+	}
 	public function add(){
 			if ($this->request->is('post')) {
-					$count = $this->User->find('count' , array('conditions' => array('User.alias' => $this->request->data['user']['alias'])));
-					debug($this->request->data);
-					if($count == 0){
-						if($this->User->save($this->request->data)){
-								$this->Session->setFlash('Usuario Registrado');
-						}else
-							$this->Session->setFlash('Error en el registro');
-					}else
-						$this->Session->setFlash('Error Usuario ya existe');
+					if($this->User->save($this->request->data)){
+							$this->Session->setFlash('Usuario Registrado');
+							$this->redirect(array('controller' => 'Pages', 'action' => 'display'));
+					}else{
+							if(isset($this->User->validationErrors['username'][0])){
+								$this->Session->setFlash($this->User->validationErrors['username'][0]);
+							}
+							if(isset($this->User->validationErrors['password'][0])){
+								$this->Session->setFlash($this->User->validationErrors['password'][0]);
+							}
+							if(isset($this->User->validationErrors['nombre'][0])){
+								$this->Session->setFlash($this->User->validationErrors['nombre'][0]);
+							}
+					}
 			}
-			//$this->redirect(array('controller' => 'Pages', 'action' => 'display'));
+			$this->redirect(array('controller' => 'Pages', 'action' => 'display'));
 	}
-	public function login(){
 
+	/**
+	*	Login del usuario.
+	*/
+	public function login(){
+		if ($this->request->is('post')) {
+			if ($this->Auth->login()) {
+				return $this->redirect($this->Auth->redirect());
+			}
+			$this->Session->setFlash(__('Invalid username or password, try again'));
+		}
+	}
+	/**
+	*	Logout del usuario
+	*/
+	public function logout() {
+		return $this->redirect($this->Auth->logout());
 	}
 }
