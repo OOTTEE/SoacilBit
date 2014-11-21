@@ -48,6 +48,10 @@ class PagesController extends AppController {
 	public function display() {
 		$path = func_get_args();
 
+		if($this->Auth->loggedIn()){
+			return $this->redirect(array('controller' => 'Users'));
+		}
+
 		$count = count($path);
 		if (!$count) {
 			return $this->redirect('/');
