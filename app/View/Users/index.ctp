@@ -9,7 +9,10 @@
       <?php
       $filas=count($posts);
       ?>
-      <li class="media" id="post">
+      <?php
+      $cont=0;
+      foreach ($posts as $value) {
+      ?><li class="media" id="post">
         <div class="pull-right" id="ilike">
           <span class="glyphicon glyphicon-heart"></span>
         </div>
@@ -18,10 +21,11 @@
           <?php echo $this->Html->image('imgperfil.jpg', array('alt' => 'imagen de perfil', 'class' => 'media-object img-rounded'));?>
         </a>
         <article class="media-body">
-          <h4 class="media-heading"><?php echo $posts[0]['u']['nombre'];?> <span id="hora"><?php echo $posts[0]['p']['fecha'];?></span></h4>
-          <p> <?php echo $posts[0]['p']['post'];?> </p>
+          <h4 class="media-heading"><?php echo $posts[$cont]['u']['nombre'];?> <span id="hora"><?php echo $posts[$cont]['p']['fecha'];?></span></h4>
+          <p> <?php echo $posts[$cont]['p']['post'];?> </p>
         </article>
       </li>
+    <?php $cont++;} ?>
 
     </ul>
   </section>
