@@ -15,6 +15,7 @@ class UsersController extends AppController{
 			$post_propio=$this->User->query('SELECT p.id as id_post,p.post,u.nombre,p.fecha FROM posts p, users u WHERE u.id='.$this->Auth->user()['id'].' and p.user_id='.$this->Auth->user()['id'].'');
 			$this->set('posts_propio',$post_propio);
 
+			$this->set('menuActivo', 'inicio');
 
 			//debug($resultado);
 			//PENDIENTE EL LISTADO DE POST DEL MURO DEL USUARIO
@@ -58,6 +59,7 @@ class UsersController extends AppController{
 				return $this->redirect($this->Auth->redirect());
 			}
 			$this->Session->setFlash(__('Invalid username or password, try again'));
+			return $this->redirect($this->Auth->redirect());
 		}
 	}
 	/**
@@ -69,7 +71,15 @@ class UsersController extends AppController{
 
 	public function buscarAmigos(){
 		//SELECT * FROM users u WHERE u.id not in ( SELECT f.user_id_friend FROM friends f WHERE f.user_id_user = '.$this->Auth->user()['id'].' )
-		debug($this->User->query('SELECT * FROM users u WHERE u.id not in ( SELECT f.user_id_friend FROM friends f WHERE f.user_id_user = '.$this->Auth->user()['id'].' )'));
+		$this->set('usuarios',$this->User->query("SELECT * , (SELECT COUNT(f1.user_id_user)
+																													FROM friends f1 LEFT JOIN friends f2 ON f1.user_id_friend=f2.user_id_friend
+																													WHERE f1.user_id_user=".$this->Auth->user()['id']." AND f2.user_id_user=u.id ) as amigosComun
+																						 FROM users u
+																						 WHERE u.id not in ( SELECT f.user_id_friend
+																																FROM friends f
+																																WHERE f.user_id_user = ".$this->Auth->user()['id']." )"
+		));
+		$this->set('menuActivo', 'buscarAmigos');
 	}
 
 	//public function postsPropios(){
