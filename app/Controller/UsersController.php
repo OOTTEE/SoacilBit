@@ -11,6 +11,11 @@ class UsersController extends AppController{
 			$resultado=$this->User->query("SELECT p.id as id ,p.post as post ,u.nombre as nombre ,p.fecha as fecha FROM posts p, users u WHERE p.user_id=u.id AND ( p.user_id=".$this->Auth->user()['id']." OR p.user_id IN (
 			SELECT f.user_id_friend FROM friends f WHERE f.user_id_user=".$this->Auth->user()['id']."))");
 			$this->set('posts',$resultado);
+
+			$post_propio=$this->User->query('SELECT p.id as id_post,p.post,u.nombre,p.fecha FROM posts p, users u WHERE u.id='.$this->Auth->user()['id'].' and p.user_id='.$this->Auth->user()['id'].'');
+			$this->set('posts_propio',$post_propio);
+
+
 			//debug($resultado);
 			//PENDIENTE EL LISTADO DE POST DEL MURO DEL USUARIO
 			//debug($Post->find('all'));
@@ -66,4 +71,12 @@ class UsersController extends AppController{
 		//SELECT * FROM users u WHERE u.id not in ( SELECT f.user_id_friend FROM friends f WHERE f.user_id_user = '.$this->Auth->user()['id'].' )
 		debug($this->User->query('SELECT * FROM users u WHERE u.id not in ( SELECT f.user_id_friend FROM friends f WHERE f.user_id_user = '.$this->Auth->user()['id'].' )'));
 	}
+
+	//public function postsPropios(){
+
+		//$post_propio=$this->User->query('SELECT p.id as id_post,p.post,u.nombre,p.fecha FROM posts p, users u WHERE u.id='.$this->Auth->user()['id'].' and p.user_id='.$this->Auth->user()['id'].'');
+		//return $post_propio;
+	//}
+
+
 }
