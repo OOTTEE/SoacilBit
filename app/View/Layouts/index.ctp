@@ -15,11 +15,14 @@
   <body>
     <?php echo $this->Session->flash(); ?>
 
-    <?php echo $this->element('sidebar'); ?>
-    
-    <?php echo $this->fetch('content'); ?>
-
-
+    <div id="cuerpo">
+      <!--CONTENIDO-->
+      <section   class="col-sm-10 col-md-8 col-lg-7" id="columnaDerecha">
+        <div class="container-fluid" >
+          <!-- Muro del usuario-->
+          <?php echo $this->fetch('content'); ?>
+        </section>
+      </div>
     <?php echo $this->element('sql_dump'); ?>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <?php echo $this->Html->script('bootstrap.min.js');?>

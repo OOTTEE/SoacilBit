@@ -46,6 +46,8 @@ class PagesController extends AppController {
  *	or MissingViewException in debug mode.
  */
 	public function display() {
+		$layout = 'index';
+
 		$path = func_get_args();
 
 		if($this->Auth->loggedIn()){
