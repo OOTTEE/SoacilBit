@@ -3,7 +3,7 @@
   <!--Perfil del usuario-->
   <header class="jumbotron text-center" id="perfil" >
     <?php echo $this->Html->image('imgperfil.jpg', array('alt' => 'Imagen de perfil', 'width' => '75', 'width' => '75', 'class' => 'img-circle'));?>
-    <h1 id="nombre"> Nombre apellido</h1>
+    <h1 id="nombre"> <?php echo $user['nombre']?></h1>
   </header>
   <!--Menu vertical de navegacion-->
   <nav class="navbar navbar-default  text-center"  role="navigation">

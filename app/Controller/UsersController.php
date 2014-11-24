@@ -7,6 +7,7 @@ class UsersController extends AppController{
 	public function index(){
 			$Post = new Post();
 
+			$this->set('user',$this->Auth->user());
 			//PENDIENTE EL LISTADO DE POST DEL MURO DEL USUARIO
 			debug($Post->find('all'));
 
