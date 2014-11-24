@@ -6,7 +6,12 @@ class UsersController extends AppController{
 	public $helpers = array('Html','Form');
 	public function index(){
 			$Post = new Post();
+			debug($this->Auth->user());
 
+			$resultado=$this->User->query("SELECT p.id as id ,p.post as post ,u.nombre as nombre ,p.fecha as fecha FROM posts p, users u WHERE p.user_id=u.id AND ( p.user_id=".$this->Auth->user()['id']." OR p.user_id IN (
+			SELECT f.user_id_friend FROM friends f WHERE f.user_id_user=".$this->Auth->user()['id']."))");
+			$this->set('posts',$resultado);
+			debug($resultado);
 			//PENDIENTE EL LISTADO DE POST DEL MURO DEL USUARIO
 			//debug($Post->find('all'));
 
