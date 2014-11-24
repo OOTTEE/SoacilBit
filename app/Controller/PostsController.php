@@ -24,6 +24,9 @@ class PostsController extends AppController{
     $this->redirect(array('controller' => 'Users', 'action' => 'index'));
   }
 
+private function mostrar_post_friends(){
 
+  
+}
 
 }
