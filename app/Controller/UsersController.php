@@ -7,9 +7,8 @@ class UsersController extends AppController{
 	public function index(){
 			$Post = new Post();
 
-			$this->set('user',$this->Auth->user());
 			//PENDIENTE EL LISTADO DE POST DEL MURO DEL USUARIO
-			debug($Post->find('all'));
+			//debug($Post->find('all'));
 
 	}
 
@@ -17,6 +16,7 @@ class UsersController extends AppController{
 		parent::beforeFilter();
 		//Añadimos la accion add al ambiente publico
 		$this->Auth->allow('add');
+		$this->set('user',$this->Auth->user());
 	}
 
 	public function add(){
@@ -58,8 +58,7 @@ class UsersController extends AppController{
 	}
 
 	public function buscarAmigos(){
+
+
 	}
-
-
-
 }
