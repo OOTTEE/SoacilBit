@@ -17,12 +17,12 @@
 
     <div id="cuerpo">
       <!--CONTENIDO-->
-      <section   class="col-sm-10 col-md-8 col-lg-7" id="columnaDerecha">
-        <div class="container-fluid" >
-          <!-- Muro del usuario-->
+      <div class="jumbotron row" id="login">
+        <div class="col-md-offset-2 col-md-8">
           <?php echo $this->fetch('content'); ?>
-        </section>
+        </div>
       </div>
+    </div>
     <?php echo $this->element('sql_dump'); ?>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <?php echo $this->Html->script('bootstrap.min.js');?>

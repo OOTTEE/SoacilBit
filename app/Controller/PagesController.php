@@ -46,7 +46,7 @@ class PagesController extends AppController {
  *	or MissingViewException in debug mode.
  */
 	public function display() {
-		$layout = 'index';
+		$this->layout = 'index';
 
 		$path = func_get_args();
 

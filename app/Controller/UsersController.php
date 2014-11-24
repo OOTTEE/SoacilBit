@@ -15,8 +15,8 @@ class UsersController extends AppController{
 	public function beforeFilter(){
 		parent::beforeFilter();
 		//Añadimos la accion add al ambiente publico
-		$this->Auth->allow('add');
 		$this->set('user',$this->Auth->user());
+		$this->Auth->allow('add');
 	}
 
 	public function add(){
@@ -58,7 +58,7 @@ class UsersController extends AppController{
 	}
 
 	public function buscarAmigos(){
-
-
+		//SELECT * FROM users u WHERE u.id not in ( SELECT f.user_id_friend FROM friends f WHERE f.user_id_user = '.$this->Auth->user()['id'].' )
+		debug($this->User->query('SELECT * FROM users u WHERE u.id not in ( SELECT f.user_id_friend FROM friends f WHERE f.user_id_user = '.$this->Auth->user()['id'].' )'));
 	}
 }

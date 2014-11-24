@@ -14,9 +14,8 @@
   </head>
   <body>
     <?php echo $this->Session->flash(); ?>
-
     <?php echo $this->element('sidebar'); ?>
-    
+
     <?php echo $this->fetch('content'); ?>
 
 

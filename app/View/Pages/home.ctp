@@ -1,9 +1,9 @@
 
-		<div class="jumbotron row" id="login">
-		<div  class="col-md-offset-2 col-md-8">
+	<div class="jumbotron row" id="login">
+		<div  class="col-md-offset-1 col-md-10">
 			<?php echo $this->Html->image('LOGO.png', array('alt' => 'SocialBit'));?>
 		</div>
-		<div class="col-md-offset-2 col-md-8" id="form_login">
+		<div class="col-md-offset-1 col-md-10" id="form_login">
 			<?php
 				echo $this->Form->create('User', array(
 					'action' => 'add',
@@ -28,7 +28,7 @@
 					</div>
 
 		</div>
-		<div class="col-md-offset-2 col-md-8" id="form_login">
+		<div class="col-md-offset-1 col-md-10" id="form_login">
 			<?php
 				echo $this->Form->create('User', array(
 					'action' => 'login',
