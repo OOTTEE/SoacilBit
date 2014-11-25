@@ -1,17 +1,13 @@
 <section   class="col-sm-10 col-md-8 col-lg-7" id="columnaDerecha">
   <div class="container-fluid" >
     <!--Incluimos la plantilla muroHeader-->
-    <?php echo $this->element('postsPropios'); ?>
+    <?php echo $this->element('muroHeader'); ?>
     <!-- Muro del usuario-->
     <section class="container-fluid" id="muro">
       <ul class="media-list">
         <!--posts que se muestran en el muro del usuario-->
         <?php
-        $filas=count($posts);
-        ?>
-        <?php
-
-        foreach ($posts_propio as $value) {
+        foreach ($misPosts as $value) {
           ?><li class="media" id="post">
             <div class="pull-right" id="ilike">
               <span class="glyphicon glyphicon-heart"></span>
@@ -26,7 +22,6 @@
             </article>
           </li>
           <?php } ?>
-
         </ul>
       </section>
     </section>

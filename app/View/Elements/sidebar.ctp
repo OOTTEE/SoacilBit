@@ -25,7 +25,8 @@
           <a href="#">Solicitudes  <span class="badge pull-right">4</span></a>
         </li>
         <li <?php if($menuActivo == 'perfil'){echo  'class="active"';}?>>
-          <a href="#">Perfil</a>
+          <?php echo $this->html->link('Perfil', array('controller' => 'Users', 'action' => 'perfil'));?>
+
         </li>
       </ul>
     </div>

@@ -82,11 +82,14 @@ class UsersController extends AppController{
 		$this->set('menuActivo', 'buscarAmigos');
 	}
 
-	//public function postsPropios(){
+	public function perfil(){
 
-		//$post_propio=$this->User->query('SELECT p.id as id_post,p.post,u.nombre,p.fecha FROM posts p, users u WHERE u.id='.$this->Auth->user()['id'].' and p.user_id='.$this->Auth->user()['id'].'');
-		//return $post_propio;
-	//}
+		$this->set('misPosts',$this->User->query("SELECT p.id as id_post,p.post,u.nombre,p.fecha
+		 FROM posts p, users u
+		WHERE u.id=".$this->Auth->user()['id']." and p.user_id=".$this->Auth->user()['id']));
+		$this->set('menuActivo', 'perfil');
+	}
+
 
 
 }
