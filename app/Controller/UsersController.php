@@ -26,7 +26,7 @@ class UsersController extends AppController{
 	public function beforeFilter(){
 		parent::beforeFilter();
 		//Añadimos la accion add al ambiente publico
-		$this->set('user',$this->Auth->user());
+		
 		$this->Auth->allow('add');
 	}
 
@@ -89,6 +89,8 @@ class UsersController extends AppController{
 		WHERE u.id=".$this->Auth->user()['id']." and p.user_id=".$this->Auth->user()['id']));
 		$this->set('menuActivo', 'perfil');
 	}
+
+
 
 
 
