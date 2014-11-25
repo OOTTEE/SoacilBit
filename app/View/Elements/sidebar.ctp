@@ -9,12 +9,23 @@
   <nav class="navbar navbar-default  text-center"  role="navigation">
     <div class="collapse navbar-collapse" id="bs-navbar-collapse">
       <ul  class="nav nav-pills nav-stacked" id="sidebar" >
-        <li class="active"><a href="#">Inicio</a></li>
-        <li><a href="#">Buscar Amigos</a></li>
-        <li><a href="#">Amigos</a></li>
-        <li><a href="#">Solicitudes  <span class="badge pull-right">4</span></a></li>
-        <li><a href="#">Perfil</a></li>
+        <li <?php if($menuActivo == 'inicio'){ echo 'class="active"'; }?>>
+          <?php echo $this->html->link('Inicio', array('controller' => 'Users', 'action' => 'index'));?>
+        </li>
+        <li <?php if($menuActivo == 'buscarAmigos'){ echo 'class="active"'; }?>>
+          <?php echo $this->html->link('Buscar de amigos', array('controller' => 'Users', 'action' => 'buscarAmigos'));?>
+        </li>
+        <li <?php if($menuActivo == 'amigos' ){ echo 'class="active"';}?>>
+          <a href="#">Amigos</a>
+        </li>
+        <li <?php if($menuActivo == 'solicitudes'){ echo 'class="active"';}?>>
+          <a href="#">Solicitudes  <span class="badge pull-right">4</span></a>
+        </li>
+        <li <?php if($menuActivo == 'perfil'){echo  'class="active"';}?>>
+          <a href="#">Perfil</a>
+        </li>
       </ul>
     </div>
   </nav>
+  
 </section>
