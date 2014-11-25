@@ -5,19 +5,23 @@
     <!-- Muro del usuario-->
     <?php //debug($usuarios);?>
     <section class="container-fluid" id="muro">
-      <?php foreach($usuarios as $user){?>
-            <div class="col-lg-6 media" id="usuario">
-              <div class="pull-right" id="addUser">
-                <span class="glyphicon glyphicon-plus"></span>
-              </div>
-              <a class="pull-left" href="#">
-                <img class="media-object img-rounded" src="./image/imgperfil.jpg" alt="imagen de perfil">
-              </a>
-              <article class="media-body">
-                <h4 class="media-heading"><?php echo $user['u']['nombre']?></h4>
-                <p>Amigos en comun <?php echo $user[0]['amigosComun']?></p>
-              </article>
+      <?php foreach($usuarios as $usuario):?>
+          <div class="col-lg-6 media" id="usuario">
+            <div class="pull-right" id="addUser">
+              <?php echo $this->Form->create('Friend', array('action' => 'addSolicitudAmistad'));
+                    echo $this->Form->hidden('user_id_user',array('value'=>$user['id']));
+                    echo $this->Form->hidden('user_id_friend',array('value'=>$usuario['u']['id']));
+                    echo $this->Form->end('+');
+              ?>
             </div>
-      <?php }?>
+            <a class="pull-left" href="#">
+              <img class="media-object img-rounded" src="./image/imgperfil.jpg" alt="imagen de perfil">
+            </a>
+            <article class="media-body">
+              <h4 class="media-heading"><?php echo $usuario['u']['nombre']?></h4>
+              <p>Amigos en comun <?php echo $usuario[0]['amigosComun']?></p>
+            </article>
+          </div>
+      <?php endforeach; ?>
     </section>
 </section>

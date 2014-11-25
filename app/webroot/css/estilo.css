@@ -189,6 +189,13 @@ section#columnaDerecha{
 			margin-top:0px;
 		}
 
+		div#addUser input{
+			font-family: 'Glyphicons Halflings';
+			background: none;
+			border: none;
+			box-shadow: none;
+			color: #428bca;
+		}
 
 		li#post img,
 		div#usuario img{
