@@ -8,10 +8,10 @@
       <?php foreach($usuarios as $usuario):?>
           <div class="col-lg-6 media" id="usuario">
             <div class="pull-right" id="addUser">
-              <?php echo $this->Form->create('Friend', array('action' => 'addSolicitudAmistad'));
-                    echo $this->Form->hidden('user_id_user',array('value'=>$user['id']));
-                    echo $this->Form->hidden('user_id_friend',array('value'=>$usuario['u']['id']));
-                    echo $this->Form->end('+');
+              <?php echo $this->Form->postLink('+',
+                            array( 'controller' => 'Friends', 'action' => 'addSolicitudAmistad'),
+                            array( 'data' => array('user_id_user' => $user['id'],
+                                                  'user_id_friend' => $usuario['u']['id'])));
               ?>
             </div>
             <a class="pull-left" href="#">

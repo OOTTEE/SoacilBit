@@ -8,12 +8,10 @@ class UsersController extends AppController{
 			$Post = new Post();
 			//debug($this->Auth->user());
 
-			$resultado=$this->User->query("SELECT p.id as id ,p.post as post ,u.nombre as nombre ,p.fecha as fecha FROM posts p, users u WHERE p.user_id=u.id AND ( p.user_id=".$this->Auth->user()['id']." OR p.user_id IN (
+			$resultado=$this->User->query("SELECT p.id as id ,p.post as post ,u.nombre as nombre ,p.fecha as fecha 
+				FROM posts p, users u WHERE p.user_id=u.id AND ( p.user_id=".$this->Auth->user()['id']." OR p.user_id IN (
 			SELECT f.user_id_friend FROM friends f WHERE f.user_id_user=".$this->Auth->user()['id']."))");
 			$this->set('posts',$resultado);
-
-			$post_propio=$this->User->query('SELECT p.id as id_post,p.post,u.nombre,p.fecha FROM posts p, users u WHERE u.id='.$this->Auth->user()['id'].' and p.user_id='.$this->Auth->user()['id'].'');
-			$this->set('posts_propio',$post_propio);
 
 			$this->set('menuActivo', 'inicio');
 

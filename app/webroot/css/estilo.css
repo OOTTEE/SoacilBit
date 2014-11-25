@@ -189,7 +189,7 @@ section#columnaDerecha{
 			margin-top:0px;
 		}
 
-		div#addUser input{
+		div#addUser a{
 			font-family: 'Glyphicons Halflings';
 			background: none;
 			border: none;
