@@ -21,4 +21,16 @@ class FriendsController extends AppController{
     $this->set('menuActivo', 'buscarAmigos');
   }
 
+  public function friends(){
+    $friends=$this->Friend->find('all', array(
+      'conditions' => array('user_id_user' => $this->Auth->user()['id'],'solicitud'=>0),
+    ));
+
+    $this->set('misAmigos', $friends);
+    $this->set('menuActivo', 'amigos');
+
+
+  }
+
+
 }
