@@ -26,7 +26,6 @@ class UsersController extends AppController{
 	public function beforeFilter(){
 		parent::beforeFilter();
 		//Añadimos la accion add al ambiente publico
-		$this->set('user',$this->Auth->user());
 		$this->Auth->allow('add');
 	}
 
@@ -75,9 +74,10 @@ class UsersController extends AppController{
 																													FROM friends f1 LEFT JOIN friends f2 ON f1.user_id_friend=f2.user_id_friend
 																													WHERE f1.user_id_user=".$this->Auth->user()['id']." AND f2.user_id_user=u.id ) as amigosComun
 																						 FROM users u
-																						 WHERE u.id not in ( SELECT f.user_id_friend
+																						 WHERE u.id <> ".$this->Auth->user()['id']." AND
+																										u.id not in ( SELECT f.user_id_friend
 																																FROM friends f
-																																WHERE f.user_id_user = ".$this->Auth->user()['id']." )"
+																																WHERE f.user_id_user = ".$this->Auth->user()['id'].")"
 		));
 		$this->set('menuActivo', 'buscarAmigos');
 	}

@@ -64,6 +64,7 @@ class AppController extends Controller {
   public function beforeFilter() {
     //añadimos al ambiente publico acciones para que usuarios no registrados puedan usarlo
     $this->Auth->allow('display', 'login');
+    $this->set('user',$this->Auth->user());
   }
 
 }

@@ -22,11 +22,11 @@
           <a href="#">Amigos</a>
         </li>
         <li <?php if($menuActivo == 'solicitudes'){ echo 'class="active"';}?>>
-          <a href="#">Solicitudes  <span class="badge pull-right">4</span></a>
+          <?php echo $this->html->link('Solicitudes  <span class="badge pull-right">4</span>', array('controller' => 'Friends', 'action' => 'showSolicitudes'), array('escape' => false));?>
+
         </li>
         <li <?php if($menuActivo == 'perfil'){echo  'class="active"';}?>>
           <?php echo $this->html->link('Perfil', array('controller' => 'Users', 'action' => 'perfil'));?>
-
         </li>
       </ul>
     </div>
