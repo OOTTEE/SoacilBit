@@ -9,10 +9,10 @@ class UsersController extends AppController{
 			//debug($this->Auth->user());
 
 
-			$resultado=$this->User->query("SELECT p.id as id ,p.post as post ,u.nombre as nombre ,p.fecha as fecha
+			$resultado=$this->User->query("SELECT p.id as id ,p.post as post ,u.nombre as nombre ,p.fecha as fecha ,
+				(SELECT count(l.post_id) as numLikes FROM likes l WHERE l.post_id = p.id) as numLikes
 				FROM posts p, users u WHERE p.user_id=u.id AND ( p.user_id=".$this->Auth->user()['id']." OR p.user_id IN (
 			SELECT f.user_id_friend FROM friends f WHERE f.user_id_user=".$this->Auth->user()['id']."))Order by p.fecha desc");
-
 			$this->set('posts',$resultado);
 
 			$this->set('menuActivo', 'inicio');
@@ -84,7 +84,8 @@ class UsersController extends AppController{
 
 	public function perfil(){
 
-		$this->set('misPosts',$this->User->query("SELECT p.id as id_post,p.post,u.nombre,p.fecha
+		$this->set('misPosts',$this->User->query("SELECT p.id as id_post,p.post,u.nombre,p.fecha ,
+																							(SELECT count(l.post_id) as numLikes FROM likes l WHERE l.post_id = p.id) as numLikes
 		 																					FROM posts p, users u
 																							WHERE u.id=".$this->Auth->user()['id']." and p.user_id=".$this->Auth->user()['id']." Order by p.fecha desc "));
 		$this->set('menuActivo', 'perfil');

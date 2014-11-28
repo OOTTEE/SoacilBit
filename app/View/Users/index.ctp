@@ -7,16 +7,13 @@
     <ul class="media-list">
       <!--posts que se muestran en el muro del usuario-->
       <?php
-      $filas=count($posts);
-      ?>
-      <?php
-    
+
       foreach ($posts as $value) {
       ?><li class="media" id="post">
         <div class="pull-right" id="ilike">
           <span class="glyphicon glyphicon-heart"></span>
         </div>
-        <span id="numLikes">1</span>
+        <span id="numLikes"><?php echo $value[0]['numLikes'];?></span>
         <a class="pull-left" href="#">
           <?php echo $this->Html->image('imgperfil.jpg', array('alt' => 'imagen de perfil', 'class' => 'media-object img-rounded'));?>
         </a>

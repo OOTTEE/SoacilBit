@@ -12,7 +12,7 @@
             <div class="pull-right" id="ilike">
               <span class="glyphicon glyphicon-heart"></span>
             </div>
-            <span id="numLikes">1</span>
+            <span id="numLikes"><?php echo $value[0]['numLikes']?></span>
             <a class="pull-left" href="#">
               <?php echo $this->Html->image('imgperfil.jpg', array('alt' => 'imagen de perfil', 'class' => 'media-object img-rounded'));?>
             </a>
