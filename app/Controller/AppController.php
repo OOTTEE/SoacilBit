@@ -20,6 +20,7 @@
  */
 
 App::uses('Controller', 'Controller');
+App::import('model','Friend');
 
 /**
  * Application Controller
@@ -65,6 +66,15 @@ class AppController extends Controller {
     //añadimos al ambiente publico acciones para que usuarios no registrados puedan usarlo
     $this->Auth->allow('display', 'login');
     $this->set('user',$this->Auth->user());
+    if($this->Auth->loggedIn()){
+      $friend = new Friend();
+      $friend->find('count' , array(
+        'conditions' => (),
+      )
+      $this->set()
+        );
+
+    }
   }
 
 }
