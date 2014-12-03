@@ -90,9 +90,4 @@ class UsersController extends AppController{
 																							WHERE u.id=".$this->Auth->user()['id']." and p.user_id=".$this->Auth->user()['id']." Order by p.fecha desc "));
 		$this->set('menuActivo', 'perfil');
 	}
-
-
-
-
-
 }
