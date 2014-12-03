@@ -168,15 +168,24 @@ section#columnaDerecha{
 		}
 
 	/*MURO*/
-		section#muro {
+		section#muro,
+		section#editPerfil {
 			margin-left: 0px;
 			margin-right: 0px;
-		}
-		section#muro{
 			padding-right: 7.5px;
 			padding-left: 7.5px;
 			padding-top: 15px;
 		}
+
+
+	/*EDITAR PERFIL*/
+
+	section#editPerfil label{
+		color:black;
+
+
+	}
+
 
 	/*POST Y LISTADO DE USUARIOS*/
 		li#post,

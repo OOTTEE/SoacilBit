@@ -21,6 +21,7 @@
 
 App::uses('Controller', 'Controller');
 App::import('model','Friend');
+App::import('model','User');
 
 /**
  * Application Controller
@@ -65,7 +66,14 @@ class AppController extends Controller {
   public function beforeFilter() {
     //añadimos al ambiente publico acciones para que usuarios no registrados puedan usarlo
     $this->Auth->allow('display', 'login');
-    $this->set('user',$this->Auth->user());
+    //$this->set('user',$this->Auth->user());
+    $userPerfil = new User();
+    $res = $userPerfil->find('first',array(
+      'condition' => array('User.username' => $this->Auth->user()['username'])
+    ));
+    $this->set('user',$res['User']);
+
+
 
 
     //Comprobación de que el metodo llamado existen en el contralador

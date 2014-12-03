@@ -1,4 +1,6 @@
 <?php
+App::uses('Folder', 'Utility');
+App::uses('File', 'Utility');
 //Importamos el modelo Post para poder hacer uso de el en este otro modelo.
 App::import('model','Post');
 
@@ -89,5 +91,24 @@ class UsersController extends AppController{
 		 																					FROM posts p, users u
 																							WHERE u.id=".$this->Auth->user()['id']." and p.user_id=".$this->Auth->user()['id']." Order by p.fecha desc "));
 		$this->set('menuActivo', 'perfil');
+	}
+
+	public function upImagePerfil(){
+		if($this->request->is('post')){
+			$dir = new Folder(APP.'webroot/img/imagenes', true, 0755);
+			debug($this->data);
+			$newName = 'imagenes/'.$this->Auth->user()['id'].'-'.$this->data['User']['image']['name'];
+			move_uploaded_file($this->data['User']['image']['tmp_name'],APP.'webroot/img/'.$newName);
+
+			$this->User->create();
+			$this->User->saveField('id', $this->Auth->user()['id']);
+			$this->User->saveField('image', $newName);
+			$this->User->save();
+			$this->redirect(array('controller' => 'Pages', 'action' => 'display'));
+		}
+	}
+
+	public function editPerfil(){
+		$this->set('menuActivo', 'inicio');
 	}
 }

@@ -2,7 +2,7 @@
 <section class="col-md-2 col-sm-2" id="columnaIzquierda">
   <!--Perfil del usuario-->
   <header class="jumbotron text-center" id="perfil" >
-    <?php echo $this->Html->image('imgperfil.jpg', array('alt' => 'Imagen de perfil', 'width' => '75', 'width' => '75', 'class' => 'img-circle'));?>
+    <?php echo $this->Html->image( $user['image'], array('alt' => 'Imagen de perfil', 'width' => '75', 'width' => '75', 'class' => 'img-circle'));?>
     <h1 id="nombre"> <?php echo $user['nombre']?>
       <?php echo $this->html->link('<span class="glyphicon glyphicon-off" aria-hidden="true"></span>', array('controller' => 'Users', 'action' => 'logout'), array('escape' => false));?>
     </h1>
