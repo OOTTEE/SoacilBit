@@ -30,14 +30,22 @@ class FriendsController extends AppController{
       'conditions' => array('user_id_user' => $this->Auth->user()['id'],
       'solicitud' => 1)
     ));
-
     $this->set('usuarios', $res);
     $this->set('menuActivo', 'solicitudes');
   }
 
   public function acceptSolicitud(){
-    debug($this->data);
-
+    $friend = $this->Friend->find('first', array(
+          'conditions' => array('Friend.id' => $this->data['Friend']['id'])
+          ));
+    $this->Friend->create();
+    $this->Friend->saveField('id', $this->data['Friend']['id']);
+    $this->Friend->saveField('solicitud', 0);
+    $this->Friend->save(array('Friend' => array(
+        'Friend.id' => $this->data['Friend']['id'],
+        'Friend.solicitud' => 0
+      )));
+    $this->redirect(array('controller' => 'Friends', 'action' => 'showSolicitudes'));
   }
 
 

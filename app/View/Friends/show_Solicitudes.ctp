@@ -10,8 +10,7 @@
           <div class="pull-right" id="addUser">
             <?php echo $this->Form->postLink('+',
                     array( 'controller' => 'Friends', 'action' => 'acceptSolicitud'),
-                    array( 'data' => array('user_id_user' => $user['id'],
-                          'user_id_friend' => $usuario['User']['id'])));
+                    array( 'data' => array('Friend.id' => $usuario['Friend']['id'])));
             ?>
           </div>
           <a class="pull-left" href="#">

@@ -9,8 +9,8 @@ class PostsController extends AppController{
   }
 
   public function add(){
-    debug($this->Auth->user());
-    debug($this->request->data);
+    // debug($this->Auth->user());
+    // debug($this->request->data);
     if($this->request->is('post')){
       $this->Post->saveField('user_id', $this->Auth->user()['id']);
       $this->Post->saveField('fecha', date("Y-m-d H:i:s"));

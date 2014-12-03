@@ -22,7 +22,7 @@
           <?php echo $this->html->link('Amigos', array('controller' => 'Friends', 'action' => 'friends'));?>
         </li>
         <li <?php if($menuActivo == 'solicitudes'){ echo 'class="active"';}?>>
-          <?php echo $this->html->link('Solicitudes  <span class="badge pull-right">4</span>', array('controller' => 'Friends', 'action' => 'showSolicitudes'), array('escape' => false));?>
+          <?php echo $this->html->link('Solicitudes  <span class="badge pull-right">'.$numSolicitudes.'</span>', array('controller' => 'Friends', 'action' => 'showSolicitudes'), array('escape' => false));?>
 
         </li>
         <li <?php if($menuActivo == 'perfil'){echo  'class="active"';}?>>

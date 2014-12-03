@@ -1,5 +1,6 @@
 <?php
 class Friend extends AppModel{
+  public $primaryKey = 'id';
   public $belongsTo = array(
     'User' => array(
       'className' => 'User',
