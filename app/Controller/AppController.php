@@ -66,6 +66,16 @@ class AppController extends Controller {
     //añadimos al ambiente publico acciones para que usuarios no registrados puedan usarlo
     $this->Auth->allow('display', 'login');
     $this->set('user',$this->Auth->user());
+
+
+    //Comprobación de que el metodo llamado existen en el contralador
+    //de lo contrario se realiza una redireccion al index
+    if (!in_array($this->action, $this->methods)) {
+      $this->redirect(array('controller' => 'pages' , 'action' => 'display'));
+    }
+
+    //Se verifica que el usuario este logueado en la aplicación
+    //Y se consulta si tiene solicitudes pendientes de aceptacion
     if($this->Auth->loggedIn()){
       $friend = new Friend();
       $resultado = $friend->find('count' , array(
