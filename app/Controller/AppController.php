@@ -78,9 +78,10 @@ class AppController extends Controller {
 
     //Comprobación de que el metodo llamado existen en el contralador
     //de lo contrario se realiza una redireccion al index
+    /*
     if (!in_array($this->action, $this->methods)) {
       $this->redirect(array('controller' => 'pages' , 'action' => 'display'));
-    }
+    }*/
 
     //Se verifica que el usuario este logueado en la aplicación
     //Y se consulta si tiene solicitudes pendientes de aceptacion

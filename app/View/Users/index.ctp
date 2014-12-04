@@ -11,7 +11,12 @@
       foreach ($posts as $value) {
       ?><li class="media" id="post">
         <div class="pull-right" id="ilike">
-          <span class="glyphicon glyphicon-heart"></span>
+
+              <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-heart" id="'.(($value[0]['likeMe'] == '1')? 'likeMe': '').'" ></span>',
+              array( 'controller' => 'Likes', 'action' => 'addLike'),
+              array( 'data' => array('post_id' => $value['p']['id']),
+                      'escape' => false ));
+              ?>
         </div>
         <span id="numLikes"><?php echo $value[0]['numLikes'];?></span>
         <a class="pull-left" href="#">

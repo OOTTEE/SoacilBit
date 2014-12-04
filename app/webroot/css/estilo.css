@@ -177,6 +177,9 @@ section#columnaDerecha{
 			padding-top: 15px;
 		}
 
+		span#likeMe {
+			color: red;
+		}
 
 	/*EDITAR PERFIL*/
 
