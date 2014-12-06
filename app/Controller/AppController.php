@@ -69,7 +69,7 @@ class AppController extends Controller {
     //$this->set('user',$this->Auth->user());
     $userPerfil = new User();
     $res = $userPerfil->find('first',array(
-      'condition' => array('User.username' => $this->Auth->user()['username'])
+      'conditions' => array('username' => $this->Auth->user()['username'])
     ));
     if(count($res) != 0)
       $this->set('user',$res['User']);
