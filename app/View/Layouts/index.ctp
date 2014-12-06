@@ -15,6 +15,16 @@
   <body>
     <?php echo $this->Session->flash(); ?>
 
+    <div class="row">
+      <div class="col-md-12 text-right">
+        <?php echo $this->html->link(__('ESP'),
+        array('controller' => 'Users', 'action' => 'cambioIdioma',
+        '?' => array('lang' => 'esp')));?>
+        <?php echo $this->html->link(__('ENG'),
+        array('controller' => 'Users', 'action' => 'cambioIdioma',
+        '?' => array('lang' => 'eng')));?>
+      </div>
+    </div>
     <div id="cuerpo">
       <!--CONTENIDO-->
       <div class="jumbotron row" id="login">
