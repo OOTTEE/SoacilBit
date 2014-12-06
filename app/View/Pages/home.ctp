@@ -29,11 +29,11 @@
 										'error' => array('attributes' => array('wrap' => 'span', 'class' => 'help-inline')),
 									)));
 
-									echo $this->Form->input('username', array('label' => array('class' => 'control-label col-sm-3', 'text' => 'Usuario'), 'placeholder' => 'Usuario','class'=>'form-control'));
-									echo $this->Form->input('password', array('label' => array('class' => 'control-label col-sm-3', 'text' => 'Contraseña'), 'placeholder' => 'Password','class'=>'form-control'));
+									echo $this->Form->input('username', array('label' => array('class' => 'control-label col-sm-3', 'text' => __('user')), 'placeholder' => 'Usuario','class'=>'form-control'));
+									echo $this->Form->input('password', array('label' => array('class' => 'control-label col-sm-3', 'text' => __('pass')), 'placeholder' => 'Password','class'=>'form-control'));
 									?>
 									<div class="form-group">
-										<?php	echo $this->Form->end(array( 'label' => 'Acceso','div' => array( 'class' => 'col-sm-offset-3 col-sm-6',), 'class'=>'btn btn-default' ));?>
+										<?php	echo $this->Form->end(array( 'label' => __('enter'),'div' => array( 'class' => 'col-sm-offset-3 col-sm-6',), 'class'=>'btn btn-default' ));?>
 									</div>
 
 								</div>
@@ -54,13 +54,13 @@
 										'error' => array('attributes' => array('wrap' => 'span', 'class' => 'help-inline')),
 									)));
 
-									echo $this->Form->input('username', array('label' => array('class' => 'control-label col-sm-3', 'text' => 'Usuario'), 'placeholder' => 'Usuario','class'=>'form-control'));
-									echo $this->Form->input('nombre', array('label' => array('class' => 'control-label col-sm-3', 'text' => 'Nombre Completo'), 'placeholder' => 'Nombre Completo','class'=>'form-control'));
-									echo $this->Form->input('password', array('label' => array('class' => 'control-label col-sm-3', 'text' => 'Contraseña'), 'placeholder' => 'Password','class'=>'form-control'));
+									echo $this->Form->input('username', array('label' => array('class' => 'control-label col-sm-3', 'text' => __('user')), 'placeholder' => 'Usuario','class'=>'form-control'));
+									echo $this->Form->input('nombre', array('label' => array('class' => 'control-label col-sm-3', 'text' => __('name')), 'placeholder' => 'Nombre Completo','class'=>'form-control'));
+									echo $this->Form->input('password', array('label' => array('class' => 'control-label col-sm-3', 'text' => __('pass')), 'placeholder' => 'Password','class'=>'form-control'));
 									//echo $this->Form->input('AUX.pass2', array('label' => array('class' => 'control-label col-sm-3', 'text' => 'Repite Contraseña'), 'placeholder' => 'Repite Password','class'=>'form-control'));
 									?>
 									<div class="form-group">
-										<?php	echo $this->Form->end(array( 'label' => 'Registro','div' => array( 'class' => 'col-sm-offset-3 col-sm-6',), 'class'=>'btn btn-default' ));?>
+										<?php	echo $this->Form->end(array( 'label' => __('register'),'div' => array( 'class' => 'col-sm-offset-3 col-sm-6',), 'class'=>'btn btn-default' ));?>
 									</div>
 
 								</div>
