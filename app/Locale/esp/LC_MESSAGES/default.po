@@ -1,11 +1,39 @@
 <?php
 
-$Texto1="Inicio";
-$Texto2="Buscar amigos";
-$Texto3="Amigos";
-$Texto4="Solicitudes";
-$Texto5="Perfil";
-$Texto6="¿Que piensas?";
-$Texto7="¿A quien buscas?";
+msgid "index"
+msgstr "Inicio"
+
+msgid "findFriends"
+msgstr "Buscar Amigos"
+
+msgid "friends"
+msgstr "Amigos"
+
+msgid "requests"
+msgstr "Solicitudes"
+
+msgid "profile"
+msgstr "Perfil"
+
+msgid "think"
+msgstr "¿Que piensas?"
+
+msgid "looking"
+msgstr "¿A quien estas buscando?"
+
+msgid "user"
+msgstr "Usuario"
+
+msgid "pass"
+msgstr "Contraseña"
+
+msgid "enter"
+msgstr "Acceder"
+
+msgid "name"
+msgstr "Nombre compelto"
+
+msgid "register"
+msgstr "Registrar"
 
 ?>
