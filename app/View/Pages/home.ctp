@@ -10,7 +10,7 @@
 				<div role="tabpanel">
 					<ul id="myTab" class="nav nav-tabs" role="tablist">
 						<li role="presentation" class="active"><a href="#login_tab" id="login_tab-tab" role="tab" data-toggle="tab" aria-controls="login_tab" aria-expanded="true">Login</a></li>
-						<li role="presentation" class=""><a href="#register" role="tab" id="register-tab" data-toggle="tab" aria-controls="register" aria-expanded="false">Registro</a></li>
+						<li role="presentation" class=""><a href="#register" role="tab" id="register-tab" data-toggle="tab" aria-controls="register" aria-expanded="false"><?php echo __('reg') ?></a></li>
 					</ul>
 					<div id="myTabContent" class="tab-content">
 						<div role="tabpanel" class="tab-pane fade active in" id="login_tab" aria-labelledby="login_tab-tab">
@@ -60,7 +60,7 @@
 									//echo $this->Form->input('AUX.pass2', array('label' => array('class' => 'control-label col-sm-3', 'text' => 'Repite Contraseña'), 'placeholder' => 'Repite Password','class'=>'form-control'));
 									?>
 									<div class="form-group">
-										<?php	echo $this->Form->end(array( 'label' => __('register'),'div' => array( 'class' => 'col-sm-offset-3 col-sm-6',), 'class'=>'btn btn-default' ));?>
+										<?php	echo $this->Form->end(array( 'label' => __('reg'),'div' => array( 'class' => 'col-sm-offset-3 col-sm-6',), 'class'=>'btn btn-default' ));?>
 									</div>
 
 								</div>

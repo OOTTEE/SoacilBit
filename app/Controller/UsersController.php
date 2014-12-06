@@ -29,7 +29,9 @@ class UsersController extends AppController{
 	public function beforeFilter(){
 		parent::beforeFilter();
 		//Añadimos la accion add al ambiente publico
-		$this->Auth->allow('add');
+		$this->Auth->allow('add','cambioIdioma');
+		
+
 	}
 
 	public function add(){

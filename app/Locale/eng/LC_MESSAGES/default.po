@@ -30,11 +30,12 @@ msgstr "Password"
 msgid "enter"
 msgstr "Log in"
 
+msgid "reg"
+msgstr "Register"
+
 msgid "name"
 msgstr "Complete name"
 
-msgid "register"
-msgstr "Register"
 
 
 ?>
