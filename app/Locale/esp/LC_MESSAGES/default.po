@@ -1,0 +1,11 @@
+<?php
+
+$Texto1="Inicio";
+$Texto2="Buscar amigos";
+$Texto3="Amigos";
+$Texto4="Solicitudes";
+$Texto5="Perfil";
+$Texto6="¿Que piensas?";
+$Texto7="¿A quien buscas?";
+
+?>
