@@ -22,7 +22,7 @@
           <div class="col-sm-12">
             <label for="imagenInput" class="control-label">Imagen de Perfil</label>
             <?php
-              echo $this->Form->file('image',array('id'=>'imagenInput', 'class'=>'form-control'));
+              echo $this->Form->file('image',array('id'=>'imagenInput'));
             ?>
           </div>
         </div>
