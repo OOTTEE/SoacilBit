@@ -152,7 +152,7 @@ section#columnaDerecha{
 		}
 		form#textBox input,
 		form#textBox textarea{
-			font-family: 'Glyphicons Halflings';
+			font-family: 'Glyphicons Halflings', 'Source Sans Pro', sans-serif;
 			width: 70%;
 			max-width:70%;
 		}

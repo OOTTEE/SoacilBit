@@ -16,11 +16,11 @@
   <!--barra multiproposito -->
   <div class="collapse navbar-collapse pull-right" id="multiBox" >
     <?php
-      echo $this->Form->create('User', array('action' => 'search',
+      echo $this->Form->create('User', array('action' => 'buscarAmigos',
                                             'class' => 'navbar-form navbar-left',
                                             'role' => 'search',
                                             'id' => 'textBox',
-
+                                            'type' => 'get'
                                             )
                               );
         ?>

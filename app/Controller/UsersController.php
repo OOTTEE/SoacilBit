@@ -72,15 +72,20 @@ class UsersController extends AppController{
 	}
 
 	public function buscarAmigos(){
+		if($this->request->is('get') AND isset($this->request->query['search']) ){
+			$filtro = "AND u.nombre LIKE '%".$this->request->query['search']."%'";
+		}else{
+			$filtro='';
+		}
 		//SELECT * FROM users u WHERE u.id not in ( SELECT f.user_id_friend FROM friends f WHERE f.user_id_user = '.$this->Auth->user()['id'].' )
 		$this->set('usuarios',$this->User->query("SELECT * , (SELECT COUNT(f1.user_id_user)
 																													FROM friends f1 LEFT JOIN friends f2 ON f1.user_id_friend=f2.user_id_friend
 																													WHERE f1.user_id_user=".$this->Auth->user()['id']." AND f2.user_id_user=u.id ) as amigosComun
 																						 FROM users u
-																						 WHERE u.id <> ".$this->Auth->user()['id']." AND
-																										u.id not in ( SELECT f.user_id_friend
+																						 WHERE u.id <> ".$this->Auth->user()['id']."
+																							AND	u.id not in ( SELECT f.user_id_friend
 																																FROM friends f
-																																WHERE f.user_id_user = ".$this->Auth->user()['id'].")"
+																																WHERE f.user_id_user = ".$this->Auth->user()['id'].")".$filtro
 		));
 		$this->set('menuActivo', 'buscarAmigos');
 	}
