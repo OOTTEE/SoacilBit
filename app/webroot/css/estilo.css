@@ -108,6 +108,12 @@ section#columnaDerecha{
 		ul#sidebar li span.badge{
 			margin-top: 4px;
 		}
+		header#perfil > div > img {
+
+			max-height: 75px;
+			max-width: 75px;
+
+		}
 
 /*CONTENIDO columnaDerecha*/
 

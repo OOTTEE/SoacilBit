@@ -3,7 +3,7 @@
   <!--Perfil del usuario-->
   <header class="jumbotron text-center" id="perfil" >
     <div>
-      <?php echo $this->Html->image( ($user['image'] == '')? 'imgperfil.jpg' : $user['image'] , array('alt' => 'Imagen de perfil', 'width' => '75', 'width' => '75', 'class' => 'img-circle'));?>
+      <?php echo $this->Html->image( ($user['image'] == '')? 'imgperfil.jpg' : $user['image'] , array('alt' => 'Imagen de perfil', 'width' => '75', 'height' => '75', 'class' => 'img-circle'));?>
     </div>
     <div>
       <?php echo $this->html->link('<span class="glyphicon glyphicon-camera"></span>',
