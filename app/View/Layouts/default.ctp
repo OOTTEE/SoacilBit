@@ -18,6 +18,16 @@
 
     <?php echo $this->fetch('content'); ?>
 
+    <div class="row">
+      <div class="col-md-9 text-right">
+        <?php echo $this->html->link(__('ESP'),
+                                    array('controller' => 'Users', 'action' => 'cambioIdioma',
+                                    '?' => array('lang' => 'esp')));?>
+        <?php echo $this->html->link(__('ENG'),
+                                    array('controller' => 'Users', 'action' => 'cambioIdioma',
+                                    '?' => array('lang' => 'eng')));?>
+      </div>
+    </div>
 
     <?php echo $this->element('sql_dump'); ?>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

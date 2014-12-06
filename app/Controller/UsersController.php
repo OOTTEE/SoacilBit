@@ -97,7 +97,6 @@ class UsersController extends AppController{
 	public function upImagePerfil(){
 		if($this->request->is('post')){
 			$dir = new Folder(APP.'webroot/img/imagenes', true, 0755);
-			debug($this->data);
 			$newName = 'imagenes/'.$this->Auth->user()['id'].'-'.$this->data['User']['image']['name'];
 			move_uploaded_file($this->data['User']['image']['tmp_name'],APP.'webroot/img/'.$newName);
 
@@ -111,5 +110,14 @@ class UsersController extends AppController{
 
 	public function editPerfil(){
 		$this->set('menuActivo', 'inicio');
+	}
+
+	public function cambioIdioma(){
+		if($this->request->is('get')){
+			if(in_array($this->request->query['lang'], $this->idiomas)){
+				$this->Session->write('lang',$this->request->query['lang']);
+			}
+		}
+		$this->redirect('/');
 	}
 }

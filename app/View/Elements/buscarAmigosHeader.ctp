@@ -11,7 +11,7 @@
   </div>
   <!--Nombre Logo de la pagina-->
   <div class="navbar-header" id="logo">
-    <a class="navbar-brand" href="/users/index.ctp"><?php echo $this->Html->image('nombre.png', array('alt' => 'SocialBit', 'width' => '112'));?></a>
+    <a class="navbar-brand" href="/"><?php echo $this->Html->image('nombre.png', array('alt' => 'SocialBit', 'width' => '112'));?></a>
   </div>
   <!--barra multiproposito -->
   <div class="collapse navbar-collapse pull-right" id="multiBox" >

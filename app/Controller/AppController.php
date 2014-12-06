@@ -61,7 +61,8 @@ class AppController extends Controller {
     return false;
 
   }*/
-
+  //IDIOMAS DE LA APLICACION
+  public $idiomas =array('esp', 'eng');
 
   public function beforeFilter() {
     //añadimos al ambiente publico acciones para que usuarios no registrados puedan usarlo
@@ -92,10 +93,8 @@ class AppController extends Controller {
       $this->set('numSolicitudes',$resultado );
     }
 
-    //Internacinalización
 
-    $idiomas=array('esp', 'eng');
-    if(!in_array($this->Session->read('lang'), $idiomas)){
+    if(!in_array($this->Session->read('lang'), $this->idiomas)){
       $this->Session->write('lang','esp');
     }
     Configure::write('Config.language', $this->Session->read('lang'));

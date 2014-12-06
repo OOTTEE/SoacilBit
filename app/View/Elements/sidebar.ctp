@@ -23,7 +23,7 @@
     <div class="collapse navbar-collapse" id="bs-navbar-collapse">
       <ul  class="nav nav-pills nav-stacked" id="sidebar" >
         <li <?php if($menuActivo == 'inicio'){ echo 'class="active"'; }?>>
-          <?php echo $this->html->link('Inicio', array('controller' => 'Users', 'action' => 'index'));?>
+          <?php echo $this->html->link(__('index'), array('controller' => 'Users', 'action' => 'index'));?>
         </li>
         <li <?php if($menuActivo == 'buscarAmigos'){ echo 'class="active"'; }?>>
           <?php echo $this->html->link('Buscar de amigos', array('controller' => 'Users', 'action' => 'buscarAmigos'));?>
