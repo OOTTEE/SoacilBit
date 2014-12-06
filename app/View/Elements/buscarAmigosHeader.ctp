@@ -16,7 +16,7 @@
   <!--barra multiproposito -->
   <div class="collapse navbar-collapse pull-right" id="multiBox" >
     <?php
-      echo $this->Form->create('User', array('action' => 'add',
+      echo $this->Form->create('User', array('action' => 'search',
                                             'class' => 'navbar-form navbar-left',
                                             'role' => 'search',
                                             'id' => 'textBox',

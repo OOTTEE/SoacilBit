@@ -71,14 +71,15 @@ class AppController extends Controller {
     $res = $userPerfil->find('first',array(
       'condition' => array('User.username' => $this->Auth->user()['username'])
     ));
-    $this->set('user',$res['User']);
+    if(count($res) != 0)
+      $this->set('user',$res['User']);
 
 
 
 
     //Comprobación de que el metodo llamado existen en el contralador
     //de lo contrario se realiza una redireccion al index
-    
+
     if (!in_array($this->action, $this->methods)) {
       $this->redirect(array('controller' => 'pages' , 'action' => 'display'));
     }

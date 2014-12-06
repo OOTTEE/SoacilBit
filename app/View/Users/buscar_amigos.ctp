@@ -1,6 +1,6 @@
 <section   class="col-sm-10 col-md-8 col-lg-7" id="columnaDerecha">
   <div class="container-fluid" >
-    <!--Incluimos la plantilla muroHeader-->
+    <!--Incluimos la plantilla buscarAmigosHeader-->
     <?php echo $this->element('buscarAmigosHeader'); ?>
     <!-- Muro del usuario-->
     <?php //debug($usuarios);?>
