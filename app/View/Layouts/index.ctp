@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    <?php echo $this->element('sql_dump'); ?>
+    
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <?php echo $this->Html->script('bootstrap.min.js');?>
   </body>
