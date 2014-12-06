@@ -18,8 +18,8 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-
 App::uses('Controller', 'Controller');
+
 App::import('model','Friend');
 App::import('model','User');
 
@@ -74,9 +74,6 @@ class AppController extends Controller {
     if(count($res) != 0)
       $this->set('user',$res['User']);
 
-
-
-
     //Comprobación de que el metodo llamado existen en el contralador
     //de lo contrario se realiza una redireccion al index
 
@@ -94,6 +91,15 @@ class AppController extends Controller {
       ));
       $this->set('numSolicitudes',$resultado );
     }
+
+    //Internacinalización
+
+    $idiomas=array('esp', 'eng');
+    if(!in_array($this->Session->read('lang'), $idiomas)){
+      $this->Session->write('lang','esp');
+    }
+    Configure::write('Config.language', $this->Session->read('lang'));
+
   }
 
 }
