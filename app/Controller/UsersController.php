@@ -94,7 +94,7 @@ class UsersController extends AppController{
 
 	public function perfil(){
 
-		$this->set('misPosts',$this->User->query("SELECT p.id as id_post,p.post,u.nombre,p.fecha , u.image, 
+		$this->set('misPosts',$this->User->query("SELECT p.id as id_post,p.post,u.nombre,p.fecha , u.image,
 																							(SELECT count(l.post_id) as numLikes FROM likes l WHERE l.post_id = p.id) as numLikes
 		 																					FROM posts p, users u
 																							WHERE u.id=".$this->Auth->user()['id']." and p.user_id=".$this->Auth->user()['id']." Order by p.fecha desc "));
@@ -115,10 +115,14 @@ class UsersController extends AppController{
 		}
 	}
 
+	//Muestra el menu de editar el perfil
 	public function editPerfil(){
 		$this->set('menuActivo', 'inicio');
 	}
 
+
+	//Esta funcion cambia el idioma de la aplicación si existe en el sistema
+	//de lo contrario no hace nada.
 	public function cambioIdioma(){
 		if($this->request->is('get')){
 			if(in_array($this->request->query['lang'], $this->idiomas)){

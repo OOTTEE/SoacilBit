@@ -52,6 +52,7 @@ class AppController extends Controller {
   );
 
   //IDIOMAS DE LA APLICACION
+  //En este array hay que añadir los idiomas definidos en el sistema
   public $idiomas =array('esp', 'eng');
 
   public function beforeFilter() {
@@ -83,7 +84,9 @@ class AppController extends Controller {
       $this->set('numSolicitudes',$resultado );
     }
 
-
+    //Cambio de idioma
+    //Se verifica que el idioma almacenado en la variable este definido en el sistema
+    // de lo contrario se pone el idioma por defecto
     if(!in_array($this->Session->read('lang'), $this->idiomas)){
       $this->Session->write('lang','esp');
     }
