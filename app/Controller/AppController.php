@@ -88,7 +88,7 @@ class AppController extends Controller {
     if($this->Auth->loggedIn()){
       $friend = new Friend();
       $resultado = $friend->find('count' , array(
-        'conditions' => array('friend.user_id_user' => $this->Auth->user()['id'],
+        'conditions' => array('friend.user_id_friend' => $this->Auth->user()['id'],
                               'friend.solicitud' => true),
       ));
       $this->set('numSolicitudes',$resultado );

@@ -29,7 +29,7 @@
       </div>
     </div>
 
-  
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <?php echo $this->Html->script('bootstrap.min.js');?>
   </body>

@@ -11,7 +11,7 @@ class UsersController extends AppController{
 			//debug($this->Auth->user());
 
 
-			$resultado=$this->User->query("SELECT p.id as id ,p.post as post ,u.nombre as nombre ,p.fecha as fecha ,
+			$resultado=$this->User->query("SELECT p.id as id ,p.post as post ,u.nombre as nombre, u.image  ,p.fecha as fecha ,
 				(SELECT count(l.post_id) as numLikes FROM likes l WHERE l.post_id = p.id) as numLikes,
 				(SELECT count(*) FROM likes WHERE user_id = ".$this->Auth->user()['id']." AND post_id = p.id) AS likeMe
 				FROM posts p, users u WHERE p.user_id=u.id AND ( p.user_id=".$this->Auth->user()['id']." OR p.user_id IN (

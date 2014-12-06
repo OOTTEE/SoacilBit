@@ -4,7 +4,7 @@ class Friend extends AppModel{
   public $belongsTo = array(
     'User' => array(
       'className' => 'User',
-      'foreignKey' => 'user_id_friend'
+      'foreignKey' => 'user_id_user'
     )
   );
 
