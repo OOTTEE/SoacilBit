@@ -30,7 +30,7 @@ class UsersController extends AppController{
 		parent::beforeFilter();
 		//Añadimos la accion add al ambiente publico
 		$this->Auth->allow('add','cambioIdioma');
-		
+
 
 	}
 
@@ -94,7 +94,7 @@ class UsersController extends AppController{
 
 	public function perfil(){
 
-		$this->set('misPosts',$this->User->query("SELECT p.id as id_post,p.post,u.nombre,p.fecha ,
+		$this->set('misPosts',$this->User->query("SELECT p.id as id_post,p.post,u.nombre,p.fecha , u.image, 
 																							(SELECT count(l.post_id) as numLikes FROM likes l WHERE l.post_id = p.id) as numLikes
 		 																					FROM posts p, users u
 																							WHERE u.id=".$this->Auth->user()['id']." and p.user_id=".$this->Auth->user()['id']." Order by p.fecha desc "));

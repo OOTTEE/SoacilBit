@@ -14,7 +14,7 @@
             ?>
           </div>
           <a class="pull-left" href="#">
-            <?php echo $this->Html->image('imgperfil.jpg', array('alt' => 'imagen de perfil', 'class' => 'media-object img-rounded'));?>
+            <?php echo $this->Html->image(($usuario['User']['image'] != '') ? $usuario['User']['image'] : 'imgperfil.jpg', array('alt' => 'imagen de perfil', 'class' => 'media-object img-rounded'));?>
           </a>
           <article class="media-body">
             <h4 class="media-heading"><?php echo $usuario['User']['nombre']?></h4>

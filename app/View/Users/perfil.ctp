@@ -14,7 +14,7 @@
             </div>
             <span id="numLikes"><?php echo $value[0]['numLikes']?></span>
             <a class="pull-left" href="#">
-              <?php echo $this->Html->image('imgperfil.jpg', array('alt' => 'imagen de perfil', 'class' => 'media-object img-rounded'));?>
+              <?php echo $this->Html->image(($value['u']['image'] != '') ? $value['u']['image'] : 'imgperfil.jpg', array('alt' => 'imagen de perfil', 'class' => 'media-object img-rounded'));?>
             </a>
             <article class="media-body">
               <h4 class="media-heading"><?php echo $value['u']['nombre'];?> <span id="hora"><?php echo $value['p']['fecha'];?></span></h4>

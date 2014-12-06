@@ -6,10 +6,9 @@
     <?php //debug($usuarios);?>
     <section class="container-fluid" id="muro">
       <?php foreach($misAmigos as $a):?>
-
         <div class="col-lg-6 media" id="usuario">
           <a class="pull-left" href="#">
-            <?php echo $this->Html->image('imgperfil.jpg', array('alt' => 'imagen de perfil', 'class' => 'media-object img-rounded'));?>
+            <?php echo $this->Html->image(($a['User']['image'] != '') ? $a['User']['image'] : 'imgperfil.jpg', array('alt' => 'imagen de perfil', 'class' => 'media-object img-rounded'));?>
           </a>
           <article class="media-body">
             <h4 class="media-heading"><?php echo $a['User']['nombre']?></h4>
