@@ -1,11 +1,11 @@
 ? php
 
-$ Text1 = "index";
-$ Text2 = "Find Friends";
-$ Text3 = "Friends";
-$ Text4 = "Requests";
-$ Text5 = "Profile";
-$ Text6 = "What do you think?";
-$ Texto7 = "who are looking for you??";
+$Text1 = "index";
+$Text2 = "Find Friends";
+$Text3 = "Friends";
+$Text4 = "Requests";
+$Text5 = "Profile";
+$Text6 = "What do you think?";
+$Texto7 = "who are looking for you??";
 
 ?>
