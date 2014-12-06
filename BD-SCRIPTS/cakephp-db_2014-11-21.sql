@@ -20,7 +20,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `cakephp`
 --
-
+CREATE DATABASE IF NOT EXISTS cakephp;
+  grant all privileges on cakephp.* to cakephpuser@'localhost' identified by "cakephppass";
+    use cakephp;
 -- --------------------------------------------------------
 
 --
