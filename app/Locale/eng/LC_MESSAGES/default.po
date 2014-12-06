@@ -1,40 +1,30 @@
 ? php
-
 msgid "index"
 msgstr "Index"
-
 msgid "findFriends"
 msgstr "Find Friends"
-
 msgid "friends"
 msgstr "friends"
-
 msgid "requests"
 msgstr "Requests"
-
 msgid "profile"
 msgstr "Profile"
-
 msgid "think"
 msgstr "What do you think?"
-
 msgid "looking"
 msgstr "who are looking for you?"
-
 msgid "user"
 msgstr "User"
-
 msgid "pass"
 msgstr "Password"
-
 msgid "enter"
 msgstr "Log in"
-
 msgid "reg"
 msgstr "Register"
-
 msgid "name"
 msgstr "Complete name"
+msgid "1"
+msgstr " "
 
 
 

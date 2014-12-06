@@ -1,39 +1,29 @@
 <?php
-
 msgid "index"
 msgstr "Inicio"
-
 msgid "findFriends"
 msgstr "Buscar Amigos"
-
 msgid "friends"
 msgstr "Amigos"
-
 msgid "requests"
 msgstr "Solicitudes"
-
 msgid "profile"
 msgstr "Perfil"
-
 msgid "think"
 msgstr "¿Que piensas?"
-
 msgid "looking"
 msgstr "¿A quien estas buscando?"
-
 msgid "user"
 msgstr "Usuario"
-
 msgid "pass"
 msgstr "Contraseña"
-
 msgid "enter"
 msgstr "Acceder"
-
 msgid "reg"
 msgstr "Registrarse"
-
 msgid "name"
 msgstr "Nombre compelto"
+msgid "1"
+msgstr " "
 
 ?>
