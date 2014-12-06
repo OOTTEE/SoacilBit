@@ -26,7 +26,7 @@
         ?>
         <div class="form-group">
         <?php
-          echo $this->Form->input('search', array('label' => array('for' => 'multiBox','text' => '¿A quien buscas?'),
+          echo $this->Form->input('search', array('label' => array('for' => 'multiBox','text' => __('looking')),
                                                'placeholder' => '&#xe003',
                                                'escape' => false,
                                                'class' => 'form-control text-right'

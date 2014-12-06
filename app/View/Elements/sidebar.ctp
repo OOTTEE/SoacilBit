@@ -26,17 +26,17 @@
           <?php echo $this->html->link(__('index'), array('controller' => 'Users', 'action' => 'index'));?>
         </li>
         <li <?php if($menuActivo == 'buscarAmigos'){ echo 'class="active"'; }?>>
-          <?php echo $this->html->link('Buscar de amigos', array('controller' => 'Users', 'action' => 'buscarAmigos'));?>
+          <?php echo $this->html->link(__('findFriends'), array('controller' => 'Users', 'action' => 'buscarAmigos'));?>
         </li>
         <li <?php if($menuActivo == 'amigos' ){ echo 'class="active"';}?>>
-          <?php echo $this->html->link('Amigos', array('controller' => 'Friends', 'action' => 'friends'));?>
+          <?php echo $this->html->link(__('friends'), array('controller' => 'Friends', 'action' => 'friends'));?>
         </li>
         <li <?php if($menuActivo == 'solicitudes'){ echo 'class="active"';}?>>
-          <?php echo $this->html->link('Solicitudes  <span class="badge pull-right">'.$numSolicitudes.'</span>', array('controller' => 'Friends', 'action' => 'showSolicitudes'), array('escape' => false));?>
+          <?php echo $this->html->link(__('Solicitudes').'  <span class="badge pull-right">'.$numSolicitudes.'</span>', array('controller' => 'Friends', 'action' => 'showSolicitudes'), array('escape' => false));?>
 
         </li>
         <li <?php if($menuActivo == 'perfil'){echo  'class="active"';}?>>
-          <?php echo $this->html->link('Perfil', array('controller' => 'Users', 'action' => 'perfil'));?>
+          <?php echo $this->html->link(__('profile'), array('controller' => 'Users', 'action' => 'perfil'));?>
         </li>
       </ul>
     </div>

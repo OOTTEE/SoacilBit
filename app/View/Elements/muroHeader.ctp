@@ -25,7 +25,7 @@
                               );
         ?>
         <div class="form-group">
-        <label for="multiBox">¿Que Piensas?</label>
+        <label for="multiBox"><?php echo __('think'); ?></label>
         <?php
           echo $this->Form->textarea('post', array(//'label' => array('for' => 'multiBox','text' => '¿Que Piensas?'),
                                                //'placeholder' => '+',
