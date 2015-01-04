@@ -8,27 +8,11 @@ class UsersController extends AppController{
 	public $helpers = array('Html','Form');
 	public function index(){
 			$Post = new Post();
-			//debug($this->Auth->user());
 
-
-			$resultado=$this->User->query("SELECT p.id as id ,p.post as post ,u.nombre as nombre, u.image  ,p.fecha as fecha ,
-																			(SELECT count(l.post_id) as numLikes FROM likes l WHERE l.post_id = p.id) as numLikes,
-																			(SELECT count(*) FROM likes WHERE user_id = ".$this->Auth->user()['id']." AND post_id = p.id) AS likeMe
-																		FROM posts p, users u
-																		WHERE p.user_id=u.id
-																			AND ( p.user_id=".$this->Auth->user()['id']."
-																			OR p.user_id IN ( SELECT f.user_id_friend
-																												FROM friends f
-																												WHERE f.user_id_user=".$this->Auth->user()['id']."
-																													AND f.solicitud = 0))
-																		Order by p.fecha desc");
-			$this->set('posts',$resultado);
+			$this->User->id=$this->Auth->user()['id'];
+			$this->set('posts',$this->User->getPostFriends());
 
 			$this->set('menuActivo', 'inicio');
-
-			//debug($resultado);
-			//PENDIENTE EL LISTADO DE POST DEL MURO DEL USUARIO
-			//debug($Post->find('all'));
 
 	}
 
@@ -80,30 +64,19 @@ class UsersController extends AppController{
 	}
 
 	public function buscarAmigos(){
+		$this->User->id=$this->Auth->user()['id'];
 		if($this->request->is('get') AND isset($this->request->query['search']) ){
-			$filtro = "AND u.nombre LIKE '%".$this->request->query['search']."%'";
+			$this->set('usuarios', $this->User->buscarAmigos($this->request->query['search']));
 		}else{
-			$filtro='';
+			$this->set('usuarios', $this->User->buscarAmigos(null));
 		}
-		//SELECT * FROM users u WHERE u.id not in ( SELECT f.user_id_friend FROM friends f WHERE f.user_id_user = '.$this->Auth->user()['id'].' )
-		$this->set('usuarios',$this->User->query("SELECT * , (SELECT COUNT(f1.user_id_user)
-																													FROM friends f1 LEFT JOIN friends f2 ON f1.user_id_friend=f2.user_id_friend
-																													WHERE f1.user_id_user=".$this->Auth->user()['id']." AND f2.user_id_user=u.id ) as amigosComun
-																						 FROM users u
-																						 WHERE u.id <> ".$this->Auth->user()['id']."
-																							AND	u.id not in ( SELECT f.user_id_friend
-																																FROM friends f
-																																WHERE f.user_id_user = ".$this->Auth->user()['id'].")".$filtro
-		));
+
 		$this->set('menuActivo', 'buscarAmigos');
 	}
 
 	public function perfil(){
-
-		$this->set('misPosts',$this->User->query("SELECT p.id as id_post,p.post,u.nombre,p.fecha , u.image,
-																							(SELECT count(l.post_id) as numLikes FROM likes l WHERE l.post_id = p.id) as numLikes
-		 																					FROM posts p, users u
-																							WHERE u.id=".$this->Auth->user()['id']." and p.user_id=".$this->Auth->user()['id']." Order by p.fecha desc "));
+		$this->User->id=$this->Auth->user()['id'];
+		$this->set('misPosts',$this->User->getPerfil());
 		$this->set('menuActivo', 'perfil');
 	}
 
