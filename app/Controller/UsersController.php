@@ -12,10 +12,16 @@ class UsersController extends AppController{
 
 
 			$resultado=$this->User->query("SELECT p.id as id ,p.post as post ,u.nombre as nombre, u.image  ,p.fecha as fecha ,
-				(SELECT count(l.post_id) as numLikes FROM likes l WHERE l.post_id = p.id) as numLikes,
-				(SELECT count(*) FROM likes WHERE user_id = ".$this->Auth->user()['id']." AND post_id = p.id) AS likeMe
-				FROM posts p, users u WHERE p.user_id=u.id AND ( p.user_id=".$this->Auth->user()['id']." OR p.user_id IN (
-			SELECT f.user_id_friend FROM friends f WHERE f.user_id_user=".$this->Auth->user()['id']."))Order by p.fecha desc");
+																			(SELECT count(l.post_id) as numLikes FROM likes l WHERE l.post_id = p.id) as numLikes,
+																			(SELECT count(*) FROM likes WHERE user_id = ".$this->Auth->user()['id']." AND post_id = p.id) AS likeMe
+																		FROM posts p, users u
+																		WHERE p.user_id=u.id
+																			AND ( p.user_id=".$this->Auth->user()['id']."
+																			OR p.user_id IN ( SELECT f.user_id_friend
+																												FROM friends f
+																												WHERE f.user_id_user=".$this->Auth->user()['id']."
+																													AND f.solicitud = 0))
+																		Order by p.fecha desc");
 			$this->set('posts',$resultado);
 
 			$this->set('menuActivo', 'inicio');
