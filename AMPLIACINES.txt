@@ -1,0 +1,9 @@
+AMPLIACIONES
+
+1 - Likes para posts (pulsando en el corazon Azul).
+2 - Unlike para posts (pulsando en el corazon Rojo).
+2 - Contador para solicitudes pendientes en pantalla.
+3 - Subir foto de perfil y mostrarla en los post.
+
+4 - Buscador de amigos, Existe una barra para la busqueda de amigos en el listado de u
+5 - Soporte MultiIdioma Español - Ingles
